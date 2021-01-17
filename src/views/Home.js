@@ -13,6 +13,8 @@ const Home = (props) =>{
 
     //父組建伸出的手,讓子組建呼叫,去更新父層的myFavoriteList
     //NewList適當user刪除的某個景點後的資料
+
+    //update 畫面
     const updateCheckMyList = (newMyFavoriteList)=>{
       setCheckMyList({
         myFavoriteList: newMyFavoriteList

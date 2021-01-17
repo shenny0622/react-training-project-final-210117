@@ -24,12 +24,16 @@ const Card = (props) => {
       if(myFavoriteList!== null){       
         myFavoriteList.push(item);
         localStorage.setItem('myFavorite',JSON.stringify(myFavoriteList));
+
+        props.updateCheckMyList(myFavoriteList);
       }else{
         let myNewFavorite = [];
         myNewFavorite.push(item);
         localStorage.setItem('myFavorite',JSON.stringify(myNewFavorite));
+
+        props.updateCheckMyList(myNewFavorite);
       }
-      props.updateCheckMyList(myFavoriteList);
+      
     } 
     else{ //將已加入我的最愛>刪除我的最愛
       
@@ -41,7 +45,7 @@ const Card = (props) => {
         let indexResult = (myFavoriteList).map(function(e) { return e.Id; }).indexOf(item.Id);
           myFavoriteList.splice(indexResult,1);
 
-        //將結果更新到localstorag  
+        //將結果更新到localStorage
         localStorage.setItem('myFavorite',JSON.stringify(myFavoriteList));
         //子組建呼叫父層的方法,更新myFavoriteList,重新渲染
         props.updateCheckMyList(myFavoriteList);
